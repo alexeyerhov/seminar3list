@@ -7,47 +7,32 @@ using System.Threading.Tasks;
 namespace seminar3list
 {
 
-    public class OperationsWithList
-    {
-        public void DeleteRepeatsAndPrint(List<int> list)
-        {
-            List<int> list2 = new List<int>();
-
-
-            foreach (var item in list)
-            {
-                if (!list2.Contains(item))
-                {
-                    list2.Add(item);
-                }
-            }
-            foreach (var item in list2)
-            {
-                Console.WriteLine(item);
-            }
-        }
-
-        public void DeleteRepeatsAndPrint2(List<int> list)
-        {
-            list.Distinct().ToList().ForEach(x => Console.WriteLine(x));
-        }
-    }
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+            // Убрать повторяющиеся числа из списка
+
             List<int> ints = new List<int>() { 5, 7, 9, 5, 6, 8, 9, 9, 0, 5 };
 
-            new OperationsWithList().DeleteRepeatsAndPrint(ints);
+            new ListOperations().DeleteRepeatsAndPrint(ints);
 
             Console.WriteLine();
 
-            new OperationsWithList().DeleteRepeatsAndPrint2(ints);
+            new ListOperations().DeleteRepeatsAndPrint2(ints);
+
+            
+
+            /*Дан список целых числен, в котором числа повторяются. Необходимо
+             * вывести на экран список числен, расположив их в порядке
+             * возрастания частоты повторения */
+
+            List<int> ints2 = new List<int>() { 1, 1, 2, 2, 3, 4, 5, 5, 6, 7, 7, 8 };
+
+            new ListOperations().CountOfRepeats(ints2);
 
             Console.Read();
-
         }
     }
 }
